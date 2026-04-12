@@ -1,0 +1,5 @@
+streamlit
+Pillow
+pymupdf
+google-generativeai
+google-cloud-texttospeech
