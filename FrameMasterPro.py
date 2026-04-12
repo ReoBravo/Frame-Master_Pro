@@ -110,7 +110,31 @@ with st.sidebar:
         </div>
         """, unsafe_allow_html=True)
     st.caption("Kwon_Jeong Edition")
+# --- [3.5 생일 축하 서프라이즈 이벤트] ---
+# 세션 상태를 이용해 처음 한 번만 팝업이 뜨도록 설정합니다.
+if "celebrated" not in st.session_state:
+    st.session_state.celebrated = False
 
+if not st.session_state.celebrated:
+    # 팝업 창(Modal) 생성
+    @st.dialog("🎂 Happy Birthday to You! 🎂")
+    def birthday_popup():
+        st.write("==========================================")
+        st.markdown(f"### 🎬 Kwon_Jeong의 Frame Master Pro")
+        st.write("### 🎈 2026.4.10 / 08")
+        st.markdown("#### **동호회 회원 여러분, 환영합니다!**")
+        st.write("==========================================")
+        st.write("Jeong 님과 생신을 맞이하신 모든 분들께 진심으로 축하를 전합니다!")
+        
+        if st.button("감사합니다! 앱 시작하기 (Enter)", use_container_width=True):
+            st.session_state.celebrated = True
+            st.rerun()
+
+    birthday_popup()
+    st.stop() # 버튼을 누르기 전까지 아래 앱 내용을 보여주지 않고 멈춤
+
+# --- [4. 메인 화면 및 파일 처리] ---
+# (이하 기존 코드 동일)
 # --- [4. 메인 화면 및 파일 처리] ---
 st.markdown("<h1 class='main-title'>Frame Master Pro</h1>", unsafe_allow_html=True)
 st.markdown("<p style='color: #ffab40; font-size: 1.1rem; font-weight: bold; margin-top: -15px;'>Precision Extraction & Full-Fill Security Engine</p>", unsafe_allow_html=True)
