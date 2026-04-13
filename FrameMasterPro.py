@@ -36,15 +36,23 @@ st.markdown("""
         color: #ffffff !important;
     }
 
-    /* 우측 상단 헤더(Deploy 라인) 블랙 & 아이콘 흰색 */
+   /* [최종 교정] 우측 상단 헤더 전체 블랙 & 모든 아이콘/글자 흰색 고정 */
     header[data-testid="stHeader"] {
         background-color: #000000 !important;
+        color: #ffffff !important;
     }
+    
+    /* Share 글자, 별, 연필, 점 세 개 아이콘 모두 흰색으로 */
+    header[data-testid="stHeader"] button,
+    header[data-testid="stHeader"] a,
     header[data-testid="stHeader"] svg {
+        color: #ffffff !important;
         fill: #ffffff !important;
     }
-    header[data-testid="stHeader"] {
-        color: #ffffff !important;
+
+    /* 깃허브 아이콘은 제외 (기존 스타일 유지 시도) */
+    header[data-testid="stHeader"] a[href*="github"] svg {
+        fill: inherit !important; /* 또는 박사님이 원하시는 특정 색상값 */
     }
 
     /* [교정] 업로드 박스 디자인 최종 정리 */
