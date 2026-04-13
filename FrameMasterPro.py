@@ -36,18 +36,24 @@ st.markdown("""
         color: #ffffff !important;
     }
 
-   /* [최종 교정] 우측 상단 헤더 전체 블랙 & 모든 아이콘/글자 흰색 고정 */
+   /* [최종 교정] 우측 상단 헤더 전체 블랙 & 모든 아이콘/글자를 하늘색으로 고정 */
     header[data-testid="stHeader"] {
         background-color: #000000 !important;
-        color: #ffffff !important;
     }
     
-    /* Share 글자, 별, 연필, 점 세 개 아이콘 모두 흰색으로 */
+    /* 왼쪽 >> 버튼, 오른쪽 Share, Fork, 점 세 개 아이콘 모두 하늘색으로 */
     header[data-testid="stHeader"] button,
     header[data-testid="stHeader"] a,
-    header[data-testid="stHeader"] svg {
-        color: #ffffff !important;
-        fill: #ffffff !important;
+    header[data-testid="stHeader"] svg,
+    header[data-testid="stHeader"] span {
+        color: #64b5f6 !important; /* 사이드바와 동일한 밝은 하늘색 */
+        fill: #64b5f6 !important;  /* 아이콘 색상 고정 */
+        -webkit-text-fill-color: #64b5f6 !important;
+    }
+
+    /* 깃허브 아이콘만 원래 색상 유지 (선택 사항) */
+    header[data-testid="stHeader"] a[href*="github"] svg {
+        fill: inherit !important;
     }
 
     /* 깃허브 아이콘은 제외 (기존 스타일 유지 시도) */
